@@ -1,4 +1,5 @@
 import pandas as pd
+import joblib
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LogisticRegression
@@ -19,3 +20,5 @@ preds = model.predict(X_test)
 acc = accuracy_score(y_test, preds)
 
 print("Model Accuracy:", acc)
+joblib.dump(model, "models/churn_model.pkl")
+print("Model saved to models/churn_model.pkl")
